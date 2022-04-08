@@ -1,0 +1,530 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		96B9E9A82800225A00E29ACC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B9E9A72800225A00E29ACC /* AppDelegate.swift */; };
+		96B9E9AA2800225A00E29ACC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B9E9A92800225A00E29ACC /* GameViewController.swift */; };
+		96B9E9AD2800225A00E29ACC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96B9E9AB2800225A00E29ACC /* Main.storyboard */; };
+		96B9E9B02800225A00E29ACC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96B9E9AE2800225A00E29ACC /* LaunchScreen.storyboard */; };
+		96B9E9B82800225B00E29ACC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B9E9B72800225B00E29ACC /* AppDelegate.swift */; };
+		96B9E9BA2800225B00E29ACC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B9E9B92800225B00E29ACC /* GameViewController.swift */; };
+		96B9E9BD2800225B00E29ACC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96B9E9BB2800225B00E29ACC /* Main.storyboard */; };
+		96B9E9BF2800225B00E29ACC /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 96B9E99C2800225800E29ACC /* Shaders.metal */; };
+		96B9E9C02800225B00E29ACC /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 96B9E99C2800225800E29ACC /* Shaders.metal */; };
+		96B9E9C12800225B00E29ACC /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B9E99D2800225800E29ACC /* Renderer.swift */; };
+		96B9E9C22800225B00E29ACC /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B9E99D2800225800E29ACC /* Renderer.swift */; };
+		96B9E9C32800225B00E29ACC /* ShaderTypes.h in Resources */ = {isa = PBXBuildFile; fileRef = 96B9E99E2800225800E29ACC /* ShaderTypes.h */; };
+		96B9E9C42800225B00E29ACC /* ShaderTypes.h in Resources */ = {isa = PBXBuildFile; fileRef = 96B9E99E2800225800E29ACC /* ShaderTypes.h */; };
+		96B9E9C52800225B00E29ACC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96B9E99F2800225A00E29ACC /* Assets.xcassets */; };
+		96B9E9C62800225B00E29ACC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96B9E99F2800225A00E29ACC /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		96B9E99C2800225800E29ACC /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		96B9E99D2800225800E29ACC /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		96B9E99E2800225800E29ACC /* ShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
+		96B9E99F2800225A00E29ACC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		96B9E9A42800225A00E29ACC /* Multiview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Multiview.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		96B9E9A72800225A00E29ACC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		96B9E9A92800225A00E29ACC /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		96B9E9AC2800225A00E29ACC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		96B9E9AF2800225A00E29ACC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		96B9E9B52800225B00E29ACC /* Multiview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Multiview.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		96B9E9B72800225B00E29ACC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		96B9E9B92800225B00E29ACC /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		96B9E9BC2800225B00E29ACC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		96B9E9BE2800225B00E29ACC /* Multiview_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Multiview_macOS.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		96B9E9A12800225A00E29ACC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96B9E9B22800225B00E29ACC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		96B9E9962800225800E29ACC = {
+			isa = PBXGroup;
+			children = (
+				96B9E99B2800225800E29ACC /* Multiview Shared */,
+				96B9E9A62800225A00E29ACC /* Multiview iOS */,
+				96B9E9B62800225B00E29ACC /* Multiview macOS */,
+				96B9E9A52800225A00E29ACC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		96B9E99B2800225800E29ACC /* Multiview Shared */ = {
+			isa = PBXGroup;
+			children = (
+				96B9E99C2800225800E29ACC /* Shaders.metal */,
+				96B9E99D2800225800E29ACC /* Renderer.swift */,
+				96B9E99E2800225800E29ACC /* ShaderTypes.h */,
+				96B9E99F2800225A00E29ACC /* Assets.xcassets */,
+			);
+			path = "Multiview Shared";
+			sourceTree = "<group>";
+		};
+		96B9E9A52800225A00E29ACC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				96B9E9A42800225A00E29ACC /* Multiview.app */,
+				96B9E9B52800225B00E29ACC /* Multiview.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		96B9E9A62800225A00E29ACC /* Multiview iOS */ = {
+			isa = PBXGroup;
+			children = (
+				96B9E9A72800225A00E29ACC /* AppDelegate.swift */,
+				96B9E9A92800225A00E29ACC /* GameViewController.swift */,
+				96B9E9AB2800225A00E29ACC /* Main.storyboard */,
+				96B9E9AE2800225A00E29ACC /* LaunchScreen.storyboard */,
+			);
+			path = "Multiview iOS";
+			sourceTree = "<group>";
+		};
+		96B9E9B62800225B00E29ACC /* Multiview macOS */ = {
+			isa = PBXGroup;
+			children = (
+				96B9E9B72800225B00E29ACC /* AppDelegate.swift */,
+				96B9E9B92800225B00E29ACC /* GameViewController.swift */,
+				96B9E9BB2800225B00E29ACC /* Main.storyboard */,
+				96B9E9BE2800225B00E29ACC /* Multiview_macOS.entitlements */,
+			);
+			path = "Multiview macOS";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		96B9E9A32800225A00E29ACC /* Multiview iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96B9E9C92800225B00E29ACC /* Build configuration list for PBXNativeTarget "Multiview iOS" */;
+			buildPhases = (
+				96B9E9A02800225A00E29ACC /* Sources */,
+				96B9E9A12800225A00E29ACC /* Frameworks */,
+				96B9E9A22800225A00E29ACC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Multiview iOS";
+			productName = "Multiview iOS";
+			productReference = 96B9E9A42800225A00E29ACC /* Multiview.app */;
+			productType = "com.apple.product-type.application";
+		};
+		96B9E9B42800225B00E29ACC /* Multiview macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96B9E9CC2800225B00E29ACC /* Build configuration list for PBXNativeTarget "Multiview macOS" */;
+			buildPhases = (
+				96B9E9B12800225B00E29ACC /* Sources */,
+				96B9E9B22800225B00E29ACC /* Frameworks */,
+				96B9E9B32800225B00E29ACC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Multiview macOS";
+			productName = "Multiview macOS";
+			productReference = 96B9E9B52800225B00E29ACC /* Multiview.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		96B9E9972800225800E29ACC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					96B9E9A32800225A00E29ACC = {
+						CreatedOnToolsVersion = 13.3;
+					};
+					96B9E9B42800225B00E29ACC = {
+						CreatedOnToolsVersion = 13.3;
+					};
+				};
+			};
+			buildConfigurationList = 96B9E99A2800225800E29ACC /* Build configuration list for PBXProject "Multiview" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 96B9E9962800225800E29ACC;
+			productRefGroup = 96B9E9A52800225A00E29ACC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				96B9E9A32800225A00E29ACC /* Multiview iOS */,
+				96B9E9B42800225B00E29ACC /* Multiview macOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		96B9E9A22800225A00E29ACC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96B9E9C32800225B00E29ACC /* ShaderTypes.h in Resources */,
+				96B9E9AD2800225A00E29ACC /* Main.storyboard in Resources */,
+				96B9E9C52800225B00E29ACC /* Assets.xcassets in Resources */,
+				96B9E9B02800225A00E29ACC /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96B9E9B32800225B00E29ACC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96B9E9BD2800225B00E29ACC /* Main.storyboard in Resources */,
+				96B9E9C62800225B00E29ACC /* Assets.xcassets in Resources */,
+				96B9E9C42800225B00E29ACC /* ShaderTypes.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		96B9E9A02800225A00E29ACC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96B9E9C12800225B00E29ACC /* Renderer.swift in Sources */,
+				96B9E9BF2800225B00E29ACC /* Shaders.metal in Sources */,
+				96B9E9AA2800225A00E29ACC /* GameViewController.swift in Sources */,
+				96B9E9A82800225A00E29ACC /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96B9E9B12800225B00E29ACC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96B9E9C22800225B00E29ACC /* Renderer.swift in Sources */,
+				96B9E9C02800225B00E29ACC /* Shaders.metal in Sources */,
+				96B9E9BA2800225B00E29ACC /* GameViewController.swift in Sources */,
+				96B9E9B82800225B00E29ACC /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		96B9E9AB2800225A00E29ACC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96B9E9AC2800225A00E29ACC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		96B9E9AE2800225A00E29ACC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96B9E9AF2800225A00E29ACC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		96B9E9BB2800225B00E29ACC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96B9E9BC2800225B00E29ACC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		96B9E9C72800225B00E29ACC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		96B9E9C82800225B00E29ACC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		96B9E9CA2800225B00E29ACC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WD3LPJ2STX;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = g.Multiview;
+				PRODUCT_NAME = Multiview;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Multiview Shared/ShaderTypes.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		96B9E9CB2800225B00E29ACC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WD3LPJ2STX;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = g.Multiview;
+				PRODUCT_NAME = Multiview;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Multiview Shared/ShaderTypes.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		96B9E9CD2800225B00E29ACC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Multiview macOS/Multiview_macOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WD3LPJ2STX;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = g.Multiview;
+				PRODUCT_NAME = Multiview;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Multiview Shared/ShaderTypes.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		96B9E9CE2800225B00E29ACC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Multiview macOS/Multiview_macOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WD3LPJ2STX;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = g.Multiview;
+				PRODUCT_NAME = Multiview;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Multiview Shared/ShaderTypes.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		96B9E99A2800225800E29ACC /* Build configuration list for PBXProject "Multiview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96B9E9C72800225B00E29ACC /* Debug */,
+				96B9E9C82800225B00E29ACC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96B9E9C92800225B00E29ACC /* Build configuration list for PBXNativeTarget "Multiview iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96B9E9CA2800225B00E29ACC /* Debug */,
+				96B9E9CB2800225B00E29ACC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96B9E9CC2800225B00E29ACC /* Build configuration list for PBXNativeTarget "Multiview macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96B9E9CD2800225B00E29ACC /* Debug */,
+				96B9E9CE2800225B00E29ACC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 96B9E9972800225800E29ACC /* Project object */;
+}
