@@ -25,7 +25,7 @@ typedef struct
 {
     float4 position [[position]];
     float2 texCoord;
-    bool discard;
+    float4 modelPosition;
 } ColorInOut;
 
 vertex ColorInOut vertexShader(Vertex in [[stage_in]],
@@ -36,26 +36,8 @@ vertex ColorInOut vertexShader(Vertex in [[stage_in]],
     float4 position = float4(in.position, 1.0);
     out.position = uniforms.projectionMatrix * uniforms.modelViewMatrix * position;
     out.texCoord = in.texCoord;
-    out.discard = false;
-
-    return out;
-}
-
-vertex ColorInOut vertexLeftShader(Vertex in [[stage_in]],
-                               constant Uniforms & uniforms [[ buffer(BufferIndexUniforms) ]])
-{
-    ColorInOut out;
-
-    float4 position = float4(in.position, 1.0);
-    out.position = uniforms.projectionMatrix * uniforms.modelViewMatrix * position;
-    out.texCoord = in.texCoord;
-    
-    if (in.position.x > -0.9) {
-        out.discard =  true;
-    }
-    else {
-        out.discard = false;
-    }
+    out.modelPosition = uniforms.modelMatrix * position;
+//    out.modelPosition = position;
 
     return out;
 }
@@ -64,7 +46,58 @@ fragment float4 fragmentShader(ColorInOut in [[stage_in]],
                                constant Uniforms & uniforms [[ buffer(BufferIndexUniforms) ]],
                                texture2d<half> colorMap     [[ texture(TextureIndexColor) ]])
 {
-    if (in.discard == true) {
+    constexpr sampler colorSampler(mip_filter::linear,
+                                   mag_filter::linear,
+                                   min_filter::linear);
+
+    half4 colorSample   = colorMap.sample(colorSampler, in.texCoord.xy);
+
+    return float4(colorSample);
+}
+
+fragment float4 fragmentLeftShader(ColorInOut in [[stage_in]],
+                               constant Uniforms & uniforms [[ buffer(BufferIndexUniforms) ]],
+                               texture2d<half> colorMap     [[ texture(TextureIndexColor) ]])
+{
+    float4 pos = uniforms.inverseModelMatrix * in.modelPosition;
+    if (pos.x > -1.8) {
+//        return float4(0.5, 1.0, 0.5, 1.0);
+        discard_fragment();
+    }
+    constexpr sampler colorSampler(mip_filter::linear,
+                                   mag_filter::linear,
+                                   min_filter::linear);
+
+    half4 colorSample   = colorMap.sample(colorSampler, in.texCoord.xy);
+
+    return float4(colorSample);
+}
+
+fragment float4 fragmentRearShader(ColorInOut in [[stage_in]],
+                               constant Uniforms & uniforms [[ buffer(BufferIndexUniforms) ]],
+                               texture2d<half> colorMap     [[ texture(TextureIndexColor) ]])
+{
+    float4 pos = uniforms.inverseModelMatrix * in.modelPosition;
+    if (pos.z > -1.8) {
+//        return float4(0.5, 1.0, 0.5, 1.0);
+        discard_fragment();
+    }
+    constexpr sampler colorSampler(mip_filter::linear,
+                                   mag_filter::linear,
+                                   min_filter::linear);
+
+    half4 colorSample   = colorMap.sample(colorSampler, in.texCoord.xy);
+
+    return float4(colorSample);
+}
+
+fragment float4 fragmentBottomShader(ColorInOut in [[stage_in]],
+                               constant Uniforms & uniforms [[ buffer(BufferIndexUniforms) ]],
+                               texture2d<half> colorMap     [[ texture(TextureIndexColor) ]])
+{
+    float4 pos = uniforms.inverseModelMatrix * in.modelPosition;
+    if (pos.y > -1.8) {
+//        return float4(0.5, 1.0, 0.5, 1.0);
         discard_fragment();
     }
     constexpr sampler colorSampler(mip_filter::linear,

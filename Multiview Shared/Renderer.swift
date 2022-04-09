@@ -45,7 +45,7 @@ class Renderer: NSObject, MTKViewDelegate {
     
     var projectionMatrix: matrix_float4x4 = matrix_float4x4()
     
-    var rotation: Float = 0
+    var rotation: Float = -Float.pi / 6
     
     var mesh: MTKMesh
     
@@ -77,19 +77,23 @@ class Renderer: NSObject, MTKViewDelegate {
             pipelineState = try Renderer.buildRenderPipelineWithDevice(device: device,
                                                                        metalKitView: metalKitView,
                                                                        mtlVertexDescriptor: mtlVertexDescriptor,
-                                                                       vertexFunction: "vertexShader")
+                                                                       vertexFunction: "vertexShader",
+                                                                       fragmentFunction: "fragmentShader")
             leftPipelineState = try Renderer.buildRenderPipelineWithDevice(device: device,
                                                                            metalKitView: metalKitView,
                                                                            mtlVertexDescriptor: mtlVertexDescriptor,
-                                                                           vertexFunction: "vertexLeftShader")
+                                                                           vertexFunction: "vertexShader",
+                                                                           fragmentFunction: "fragmentLeftShader")
             rearPipelineState = try Renderer.buildRenderPipelineWithDevice(device: device,
                                                                            metalKitView: metalKitView,
                                                                            mtlVertexDescriptor: mtlVertexDescriptor,
-                                                                           vertexFunction: "vertexLeftShader")
+                                                                           vertexFunction: "vertexShader",
+                                                                           fragmentFunction: "fragmentRearShader")
             bottomPipelineState = try Renderer.buildRenderPipelineWithDevice(device: device,
                                                                              metalKitView: metalKitView,
                                                                              mtlVertexDescriptor: mtlVertexDescriptor,
-                                                                             vertexFunction: "vertexLeftShader")
+                                                                             vertexFunction: "vertexShader",
+                                                                             fragmentFunction: "fragmentBottomShader")
         } catch {
             print("Unable to compile render pipeline state.  Error info: \(error)")
             return nil
@@ -147,13 +151,14 @@ class Renderer: NSObject, MTKViewDelegate {
     class func buildRenderPipelineWithDevice(device: MTLDevice,
                                              metalKitView: MTKView,
                                              mtlVertexDescriptor: MTLVertexDescriptor,
-                                             vertexFunction: String) throws -> MTLRenderPipelineState {
+                                             vertexFunction: String,
+                                             fragmentFunction: String) throws -> MTLRenderPipelineState {
         /// Build a render state pipeline object
         
         let library = device.makeDefaultLibrary()
         
         let vertexFunction = library?.makeFunction(name: vertexFunction)
-        let fragmentFunction = library?.makeFunction(name: "fragmentShader")
+        let fragmentFunction = library?.makeFunction(name: fragmentFunction)
         
         let pipelineDescriptor = MTLRenderPipelineDescriptor()
         pipelineDescriptor.label = "RenderPipeline"
@@ -233,27 +238,40 @@ class Renderer: NSObject, MTKViewDelegate {
         uniforms2[0].projectionMatrix = projectionMatrix
         uniforms3[0].projectionMatrix = projectionMatrix
         
-        rotation = Float.pi / 3
+//        rotation = -Float.pi / 6
+        let viewRotation = Float.pi / 6.0
         var rotationAxis = SIMD3<Float>(0, 1, 0)
-        var viewMatrix = matrix4x4_translation(0.0, 0.0, -8.0) * matrix4x4_rotation(radians: Float.pi / 6, axis: [1, 0, 0])
+        var viewMatrix = matrix4x4_translation(0.0, 0.0, -8.0) * matrix4x4_rotation(radians: viewRotation, axis: [1, 0, 0])
         var modelMatrix = matrix4x4_rotation(radians: rotation, axis: rotationAxis)
         uniforms0[0].modelViewMatrix = simd_mul(viewMatrix, modelMatrix)
+        uniforms0[0].modelMatrix = modelMatrix
+        uniforms0[0].inverseModelMatrix = modelMatrix.inverse
+        uniforms0[0].inverseModelMatrix = matrix4x4_rotation(radians: Float.pi / 6.0, axis: rotationAxis)
         
-        viewMatrix = matrix4x4_translation(0.0, 0.0, -8.0) * matrix4x4_rotation(radians: Float.pi / 6, axis: [1, 0, 0])
+        viewMatrix = matrix4x4_translation(0.0, 0.0, -8.0) * matrix4x4_rotation(radians: viewRotation, axis: [1, 0, 0])
         modelMatrix = matrix4x4_rotation(radians: rotation, axis: rotationAxis)
         uniforms1[0].modelViewMatrix = simd_mul(viewMatrix, modelMatrix)
+        uniforms1[0].modelMatrix = modelMatrix
+        uniforms1[0].inverseModelMatrix = matrix4x4_rotation(radians: Float.pi / 6.0, axis: rotationAxis)
         
-        viewMatrix = matrix4x4_translation(0.0, 0.0, -8.0) * matrix4x4_rotation(radians: Float.pi / 6, axis: [1, 0, 0])
+        viewMatrix = matrix4x4_translation(0.0, 0.0, -8.0) * matrix4x4_rotation(radians: viewRotation, axis: [1, 0, 0])
         modelMatrix = matrix4x4_rotation(radians: rotation, axis: rotationAxis)
 //        modelMatrix = matrix4x4_rotation(radians: -Float.pi / 6.0, axis: [1, 0, 0]) * matrix4x4_rotation(radians: rotation, axis: rotationAxis)
         uniforms2[0].modelViewMatrix = simd_mul(viewMatrix, modelMatrix)
+        uniforms2[0].modelMatrix = modelMatrix
+        uniforms2[0].inverseModelMatrix = modelMatrix.inverse
+        uniforms2[0].inverseModelMatrix = matrix4x4_rotation(radians: Float.pi / 6.0, axis: rotationAxis)
         
-        viewMatrix = matrix4x4_translation(0.0, 0.0, -8.0)  * matrix4x4_rotation(radians: Float.pi / 6, axis: [1, 0, 0])
+        viewMatrix = matrix4x4_translation(0.0, 0.0, -8.0)  * matrix4x4_rotation(radians: viewRotation, axis: [1, 0, 0])
         modelMatrix = matrix4x4_rotation(radians: rotation, axis: rotationAxis)
 //        modelMatrix = matrix4x4_rotation(radians: Float.pi / 2.0, axis: [1, 0, 0])
 //        * matrix4x4_rotation(radians: rotation, axis: rotationAxis)
         uniforms3[0].modelViewMatrix = simd_mul(viewMatrix, modelMatrix)
-//        rotation += 0.01
+        uniforms3[0].modelMatrix = modelMatrix
+        uniforms3[0].inverseModelMatrix = modelMatrix.inverse
+        uniforms3[0].inverseModelMatrix = matrix4x4_rotation(radians: Float.pi / 6.0, axis: rotationAxis)
+         
+        rotation += 0.01
     }
     
     func draw(in view: MTKView) {
@@ -283,11 +301,9 @@ class Renderer: NSObject, MTKViewDelegate {
                 
                 renderEncoder.pushDebugGroup("Draw Box")
                 
-                renderEncoder.setCullMode(.none)
                 
                 renderEncoder.setFrontFacing(.counterClockwise)
                 
-                renderEncoder.setRenderPipelineState(pipelineState)
                 
                 renderEncoder.setDepthStencilState(depthState)
                 let w = Double(view.currentDrawable!.texture.width)
@@ -297,9 +313,13 @@ class Renderer: NSObject, MTKViewDelegate {
                         renderEncoder.setViewport(MTLViewport(originX: 0, originY: 0, width: w, height: h, znear: 0, zfar: 1))
                 for x in 0..<4 {
                     if x == 0 {
+                        renderEncoder.setCullMode(.back)
+                        renderEncoder.setRenderPipelineState(pipelineState)
                         renderEncoder.setViewport(MTLViewport(originX: 0, originY: 0, width: w, height: h, znear: 0, zfar: 1))
                     }
                     else if x == 1 {
+                        renderEncoder.setCullMode(.front)
+                        renderEncoder.setRenderPipelineState(leftPipelineState)
                         renderEncoder.setViewport(MTLViewport(
                             originX: 0,
                             originY: h / 2 - h1 / 2,
@@ -310,6 +330,8 @@ class Renderer: NSObject, MTKViewDelegate {
                         ))
                     }
                     else if x == 2 {
+                        renderEncoder.setCullMode(.front)
+                        renderEncoder.setRenderPipelineState(bottomPipelineState)
                         renderEncoder.setViewport(MTLViewport(
                             originX: w / 2 - w1 / 2,
                             originY: h - h1,
@@ -320,6 +342,8 @@ class Renderer: NSObject, MTKViewDelegate {
                         ))
                     }
                     else {
+                        renderEncoder.setCullMode(.front)
+                        renderEncoder.setRenderPipelineState(rearPipelineState)
                         renderEncoder.setViewport(MTLViewport(
                             originX: w / 2 - w1 / 2,
                             originY: 0,
